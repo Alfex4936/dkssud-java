@@ -101,23 +101,7 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- Maven GPG Plugin for signing artifacts -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
+            
             <!-- Maven Deploy Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -134,28 +118,4 @@
         </repository>
     </repositories>
 
-    <!-- Distribution Management for deploying to Sonatype OSSRH -->
-    <distributionManagement>
-        <repository>
-            <id>ossrh</id>
-            <name>OSSRH Repository</name>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-        <snapshotRepository>
-            <id>ossrh-snapshot</id>
-            <name>OSSRH Snapshot Repository</name>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <!-- Profiles for deploying to OSSRH -->
-    <profiles>
-        <profile>
-            <id>release</id>
-            <properties>
-                <gpg.executable>gpg</gpg.executable>
-                <gpg.passphrase>gpg-passphrase</gpg.passphrase>
-            </properties>
-        </profile>
-    </profiles>
 </project>
